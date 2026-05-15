@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:docs.openclaw.ai)",
+      "Bash(node --check src/routes/setup.js)",
+      "Bash(node --check src/services/gatewayManager.js)",
+      "Bash(node --check src/services/configBuilder.js)",
+      "WebFetch(domain:fossies.org)",
+      "WebFetch(domain:openclawlab.com)",
+      "WebFetch(domain:docs.z.ai)",
+      "Bash(node --check src/services/onboardBuilder.js)",
+      "Bash(node --check src/utils/validation.js)"
+    ]
+  }
+}
