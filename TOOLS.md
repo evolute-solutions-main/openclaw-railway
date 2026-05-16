@@ -51,7 +51,7 @@ Do NOT use a single `address` field.
 
 ## Discord
 
-Single bot token (`EVA_BOT_TOKEN`) shared across all Eva instances. Isolation is enforced by channel mapping in `config/clients.mjs` — each instance only listens and replies in its assigned channel.
+Single bot token (`DISCORD_BOT_TOKEN`) shared across all Eva instances. Isolation is enforced by channel mapping in `config/clients.mjs` — each instance only listens and replies in its assigned channel.
 
 **What Eva can do:**
 - Listen for messages in assigned Discord channels
@@ -69,7 +69,7 @@ Single bot token (`EVA_BOT_TOKEN`) shared across all Eva instances. Isolation is
 | Variable | Purpose |
 |---|---|
 | `GHL_PRIVATE_INTEGRATION_TOKEN` | Dashboard only — Evolute main account |
-| `EVA_BOT_TOKEN` | Discord bot token (shared across all Eva instances) |
+| `DISCORD_BOT_TOKEN` | Discord bot token (shared across all Eva instances) |
 
 ---
 
@@ -80,12 +80,12 @@ Single bot token (`EVA_BOT_TOKEN`) shared across all Eva instances. Isolation is
 Refer to `config/clients.mjs` for the client mapping (location ID, channel ID) — the actual API keys are loaded from secure storage at runtime.
 
 **Environment variables needed:**
-- `EVA_BOT_TOKEN` — Discord bot token for Eva
+- `DISCORD_BOT_TOKEN` — Discord bot token for Eva
 - `GHL_PRIVATE_INTEGRATION_TOKEN` — Evolute's main GHL token (dashboard only)
 - Per-client GHL API keys (loaded from `config/clients.mjs`)
 
 **To connect Eva to Discord:**
-1. Set `EVA_BOT_TOKEN` env var to your Discord bot token
+1. Set `DISCORD_BOT_TOKEN` env var to your Discord bot token
 2. Client channel IDs are already in `config/clients.mjs` (e.g., `cesar` → `1503757612771049502`)
 3. Eva will auto-detect which client based on the channel ID
 4. Start Eva and it should connect to Discord
