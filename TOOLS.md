@@ -45,8 +45,6 @@ Do NOT use a single `address` field.
 - Delete anything
 - Mention client tags
 
-**Note:** The main `GHL_PRIVATE_INTEGRATION_TOKEN` is used by the dashboard only (appointment sync, Stripe matching, Fathom links). Eva never touches it.
-
 ---
 
 ## Discord
@@ -68,7 +66,6 @@ Single bot token (`DISCORD_BOT_TOKEN`) shared across all Eva instances. Isolatio
 
 | Variable | Purpose |
 |---|---|
-| `GHL_PRIVATE_INTEGRATION_TOKEN` | Dashboard only — Evolute main account |
 | `DISCORD_BOT_TOKEN` | Discord bot token (shared across all Eva instances) |
 
 ---
@@ -81,11 +78,11 @@ Refer to `config/clients.mjs` for the client mapping (location ID, channel ID) �
 
 **Environment variables needed:**
 - `DISCORD_BOT_TOKEN` — Discord bot token for Eva
-- `GHL_PRIVATE_INTEGRATION_TOKEN` — Evolute's main GHL token (dashboard only)
-- Per-client GHL API keys (loaded from `config/clients.mjs`)
+- Per-client GHL API keys (loaded from `config/clients.mjs` — each client has their own `ghlApiKey`)
 
 **To connect Eva to Discord:**
 1. Set `DISCORD_BOT_TOKEN` env var to your Discord bot token
-2. Client channel IDs are already in `config/clients.mjs` (e.g., `cesar` → `1503757612771049502`)
-3. Eva will auto-detect which client based on the channel ID
-4. Start Eva and it should connect to Discord
+2. Client channel IDs and GHL API keys are already in `config/clients.mjs` (e.g., `cesar` → channel `1503757612771049502` + GHL key)
+3. Eva will auto-detect which client based on the Discord channel ID
+4. Eva will use that client's GHL API key for all API calls
+5. Start Eva and it should connect to Discord
